@@ -1,0 +1,27 @@
+name: 'Code Signing Action'
+description: 'Digitally signs executables using signtool and Encryption Consulting Key Storage Provider'
+author: 'Your Name or Company'
+
+inputs:
+  file-path:
+    description: 'Path to the file that needs to be signed'
+    required: true
+  cert-path:
+    description: 'Path to the signing certificate (.crt file)'
+    required: true
+  key-container:
+    description: 'Key container name'
+    required: true
+    default: 'ovcodesigning'
+  timestamp-server:
+    description: 'Timestamp server URL'
+    required: false
+    default: 'http://timestamp.sectigo.com'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run SignTool
+      shell: pwsh
+      run: |
+        signtool sign /csp "Encryption Consulting Key Storage Provider" /kc "${{ inputs.key-container }}" /fd SHA256 /f "${{ inputs.cert-path }}" /tr "${{ inputs.timestamp-server }}" /td SHA256 "${{ inputs.file-path }}"

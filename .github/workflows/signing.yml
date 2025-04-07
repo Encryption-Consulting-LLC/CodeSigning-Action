@@ -1,0 +1,22 @@
+name: Code Signing and Verification Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sign-and-verify:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Run Code Signing Action
+        uses: SubhayuEC/CodeSigning-action@v1
+        with:
+          file-path: 'C:\Users\sam\Downloads\ckcerttool.exe'
+          cert-path: 'C:\Users\sam\Downloads\ovcodesigning.crt'
+          key-container: 'ovcodesigning'
+          timestamp-server: 'http://timestamp.sectigo.com'
