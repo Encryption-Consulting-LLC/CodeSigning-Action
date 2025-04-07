@@ -1,4 +1,4 @@
-# 🔏 Code Signing with Encryption Consulting KSP
+# 🔏 Code Signing with Encryption Consulting
 
 Digitally sign and verify Windows executables using Microsoft SignTool and the **Encryption Consulting Key Storage Provider (KSP)**. This action is ideal for secure code signing workflows using a non-exportable private key container.
 
