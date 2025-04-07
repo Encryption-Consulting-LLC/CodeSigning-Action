@@ -14,9 +14,10 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Code Signing Action
-        uses: SubhayuEC/CodeSigning-Action@v1
+        uses: Encryption-Consulting-LLC/CodeSigning-Action@v1
         with:
           file-path: 'C:\Users\sam\Downloads\ckcerttool.exe'
           cert-path: 'C:\Users\sam\Downloads\ovcodesigning.crt'
           key-container: 'ovcodesigning'
           timestamp-server: 'http://timestamp.sectigo.com'
+          
