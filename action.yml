@@ -1,6 +1,6 @@
 name: 'Code Signing Action'
-description: 'Digitally signs executables using signtool and Encryption Consulting Key Storage Provider'
-author: 'Your Name or Company'
+description: 'Digitally signs executables and verifies the signature using signtool'
+author: 'Encryption Consulting LLC'
 
 inputs:
   file-path:
@@ -21,7 +21,14 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Run SignTool
+    - name: Sign Executable
       shell: pwsh
       run: |
+        Write-Host "Signing the file: ${{ inputs.file-path }}"
         signtool sign /csp "Encryption Consulting Key Storage Provider" /kc "${{ inputs.key-container }}" /fd SHA256 /f "${{ inputs.cert-path }}" /tr "${{ inputs.timestamp-server }}" /td SHA256 "${{ inputs.file-path }}"
+
+    - name: Verify Signature
+      shell: pwsh
+      run: |
+        Write-Host "Verifying the signed file..."
+        signtool verify /pa "${{ inputs.file-path }}"
