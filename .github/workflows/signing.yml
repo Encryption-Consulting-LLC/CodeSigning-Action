@@ -13,6 +13,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Check runner user
+        run: whoami
+        shell: cmd
+
       - name: Run Code Signing Action
         uses: ./ 
         with:
