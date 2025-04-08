@@ -12,7 +12,6 @@ inputs:
   key-container:
     description: 'Key container name'
     required: true
-    default: 'ovcodesigning'
   timestamp-server:
     description: 'Timestamp server URL'
     required: false
