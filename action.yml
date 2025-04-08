@@ -1,6 +1,9 @@
 name: 'Code Signing Action'
 description: 'Digitally signs executables and verifies the signature using signtool'
 author: 'Encryption Consulting LLC'
+branding:
+  icon: 'shield'
+  color: 'blue'
 
 inputs:
   file-path:
