@@ -18,9 +18,17 @@ inputs:
     default: 'http://timestamp.sectigo.com'
 
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
-    - shell: cmd
+    - name: Check OS
+      shell: bash
+      run: |
+        if [[ "$RUNNER_OS" != "Windows" ]]; then
+          echo "This GitHub Action currently only supports Windows runners."
+          exit 1
+        fi
+    - name: Sign file
+      shell: cmd
       run: >
         echo Signing the file: ${{ inputs.file-path }} &&
         "C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\x64\signtool.exe" sign /csp "Encryption Consulting Key Storage Provider" /kc "${{ inputs.key-container }}" /fd SHA256 /f "${{ inputs.cert-path }}" /tr "${{ inputs.timestamp-server }}" /td SHA256 "${{ inputs.file-path }}"
