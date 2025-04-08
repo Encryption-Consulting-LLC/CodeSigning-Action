@@ -16,7 +16,7 @@ jobs:
       - name: Run Code Signing Action
         uses: ./ 
         with:
-          file-path: 'C:\winsdksetup.exe'
-          cert-path: 'C:\BechtelTest2.crt'
+          file-path: 'C:\Users\sam\Desktop\winsdksetup.exe'
+          cert-path: 'C:\Users\sam\Desktop\BechtelTest2.crt'
           key-container: 'BechtelTest2'
           timestamp-server: 'http://timestamp.sectigo.com'
