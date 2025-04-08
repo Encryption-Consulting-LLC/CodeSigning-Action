@@ -6,8 +6,8 @@ on:
       - main
 
 jobs:
-  sign-and-verify:
-    runs-on: windows-latest
+  sign:
+    runs-on: [self-hosted, windows]
 
     steps:
       - name: Checkout Repository
