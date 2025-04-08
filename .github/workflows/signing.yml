@@ -1,7 +1,9 @@
 name: Using full path
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   sign-and-verify:
