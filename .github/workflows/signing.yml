@@ -16,8 +16,8 @@ jobs:
       - name: Run Code Signing Action
         uses: Encryption-Consulting-LLC/CodeSigning-Action@v1
         with:
-          file-path: 'C:\Users\sam\Downloads\ckcerttool.exe'
-          cert-path: 'C:\Users\sam\Downloads\ovcodesigning.crt'
-          key-container: 'ovcodesigning'
+          file-path: 'C:\Users\sam\Desktop\CodeSign Secure\Sample Signing Files\winsdksetup.exe'
+          cert-path: 'C:\Users\sam\Desktop\CodeSign Secure\Signing Certificates\BechtelTest2.crt'
+          key-container: 'BechtelTest2'
           timestamp-server: 'http://timestamp.sectigo.com'
           
