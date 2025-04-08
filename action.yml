@@ -24,11 +24,13 @@ runs:
     - name: Sign Executable
       shell: pwsh
       run: |
+        $signtool = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\signtool.exe"
         Write-Host "Signing the file: ${{ inputs.file-path }}"
-        signtool sign /csp "Encryption Consulting Key Storage Provider" /kc "${{ inputs.key-container }}" /fd SHA256 /f "${{ inputs.cert-path }}" /tr "${{ inputs.timestamp-server }}" /td SHA256 "${{ inputs.file-path }}"
+        & $signtool sign /csp "Encryption Consulting Key Storage Provider" /kc "${{ inputs.key-container }}" /fd SHA256 /f "${{ inputs.cert-path }}" /tr "${{ inputs.timestamp-server }}" /td SHA256 "${{ inputs.file-path }}"
 
     - name: Verify Signature
       shell: pwsh
       run: |
+        $signtool = "C:\Program Files (x86)\Windows Kits\10\bin\10.0.22621.0\x64\signtool.exe"
         Write-Host "Verifying the signed file..."
-        signtool verify /pa "${{ inputs.file-path }}"
+        & $signtool verify /pa "${{ inputs.file-path }}"
