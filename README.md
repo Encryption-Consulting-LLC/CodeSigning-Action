@@ -16,7 +16,7 @@ Code Signing ensures the **authenticity** and **integrity** of digital content s
 ## ✅ Key Features
 
 ### 🔐 HSM-Backed Keys
-- Keys are stored and managed using FIPS 140-2 Level 3 HSMs.
+- Keys are stored and managed using FIPS 140-2/FIPS 140-3 Level 3 HSMs.
 - Cloud-based or on-premises HSM support.
 - High security and compliance.
 
@@ -49,7 +49,7 @@ Code Signing ensures the **authenticity** and **integrity** of digital content s
 
 ## 📁 File Types Supported
 
-- **Windows Authenticode**: `.exe`, `.dll`, `.cab`, `.msi`, `.ps1`, `.sys`, `.ocx`, `.vbs`, `.cat`, and more.
+- **Windows Authenticode**: `.exe`, `.dll`, `.cab`, `.msi`, `.ps1`, `.sys`, `.ocx`, `.vbs`, `.cat`, `*.msp`, `*.cpl`, `*.efi`, `*.arx`, `*.dbx`, `*.crx`, `*.xsn`, `*.deploy`, `*.xap`, and more.
 - **Apple Signing**: `.dmg`, `.ipa`, `.app`, `.pkg`, `.mpkg`
 - **Java & Android**: `.jar`, `.apk`, `.war`, `.ear`, `.sar`
 - **Firmware**: `.bin`, `.img`, `.hex`, `.fw`, `.dfu`
